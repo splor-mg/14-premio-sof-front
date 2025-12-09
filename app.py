@@ -3,7 +3,6 @@ from dotenv import load_dotenv
 import streamlit as st
 import requests
 from datetime import date
-import base64
 
 load_dotenv()
 
@@ -23,25 +22,22 @@ if enviado:
         st.error("Por favor, preencha o número de telefone.")
         st.stop()
 
-    fluxo_url = os.getenv("FLOW_URL")
+    fluxo_url = os.getenv("FLOW_URL")  # must be /webhook/, NOT /webhook-test
+    username = os.getenv("FLOW_USERNAME")
+    password = os.getenv("FLOW_PASSWORD")
 
     payload = {
         "data": str(data_input),
         "telefone": telefone
     }
 
-    username = os.getenv('USERNAME')
-    password = os.getenv('PASSWORD')
-
-    # token = f"{username}:{password}"
-    # basic_auth = base64.b64encode(token.encode()).decode()
-
-    # headers = {
-    #     "Authorization": "Basic " + basic_auth
-    # }
-
     try:
-        resposta = requests.post(fluxo_url, json=payload, auth=(username, password), timeout=10)
+        resposta = requests.post(
+            fluxo_url,
+            json=payload,
+            auth=(username, password),     # ← Built-in Basic Auth
+            timeout=10
+        )
 
         if resposta.status_code in (200, 201, 202):
             st.success("✅ Fluxo acionado com sucesso!")

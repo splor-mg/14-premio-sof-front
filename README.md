@@ -25,7 +25,7 @@ cd 14-premio-sof-front
 
 - Informe as variáveis de ambiente[^1]:
 
-[^1]: O projeto usa variáveis de ambiente para informar o endpoint do fluxo n8n e as credenciais de autenticação. No repositório há um arquivo `.env-example` com os campos necessários. Basta criar o arquivo `.env` a partir do `.env-example`. Para a demonstração do 14º prêmio SOF, utilizamos [este fluxo n8n](https://dou-feed-legis-demo-n8n.6rngh8.easypanel.host/workflow/7sn2HM02ne0a6hXK) para rodar o feed de alterações legislativas. As credenciais cadastradas podem ser encontradas no primeiro node do fluxo (`Webhook`), no campo "Credential for Basic Auth".
+[^1]: O projeto usa variáveis de ambiente para informar o endpoint do fluxo n8n e as credenciais de autenticação. No repositório há um arquivo `.env-example` com os campos necessários. Basta criar o arquivo `.env` a partir do `.env-example`. Para facilitar o teste local, o arquivo `.env-example` contém um endpoint real da ferramenta [DummyJSON](https://dummyjson.com/). Para ambiente de produção, e consequentemente a demonstração do 14º prêmio SOF, utilizamos [este fluxo n8n](https://dou-feed-legis-demo-n8n.6rngh8.easypanel.host/workflow/7sn2HM02ne0a6hXK) para rodar o feed de alterações legislativas. As credenciais cadastradas podem ser encontradas no primeiro node do fluxo (`Webhook`), no campo "Credential for Basic Auth".
 
 ```sh
 cp .env-example .env

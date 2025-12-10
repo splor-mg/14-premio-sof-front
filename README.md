@@ -4,7 +4,7 @@ Este é um aplicativo simples em **Streamlit** criado para **acionar o fluxo do 
 
 Este é um protótipo para demonstrar o funcionamento do [feed de alterações legislativas](https://github.com/splor-mg/feed-legis-workflows) no [14º Premio SOF](https://github.com/splor-mg/14-premio-sof).
 
-Para acionar o fluxo, o usuário deverá informar a data da busca e uma lista de números de WhatsApp.A resposta do processo será enviada para os números informados.
+Para acionar o fluxo, o usuário deverá informar a data da busca e uma lista de números de WhatsApp. A resposta do processo será enviada para os números informados.
 
 ## 🚀 Funcionalidades
 
@@ -42,7 +42,7 @@ FLOW_PASSWORD=senhaSegura
 
 ## ▶️ Executando a aplicação
 
-Este projeto utiliza Poetry. Para instalar as dependências[^2]:
+Este projeto utiliza Poetry. Para instalar as dependências[^2] e rodar o servidor localmente:
 
 [^2]: Este projeto use Python `3.13`. caso não tenha esta versão instalada no seu computador, Poetry poderá te ajudar. Use `poetry python install 3.13` para instalar a versão, `poetry env use 3.13` para definir esta versão no seu ambiente virtual e, finalmente, `poetry install` para instalar as dependências.
 

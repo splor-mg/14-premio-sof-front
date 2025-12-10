@@ -25,4 +25,4 @@ ENV STREAMLIT_SERVER_PORT=8501 \
 EXPOSE 8501
 
 # Run the app located inside src/
-CMD ["streamlit", "run", "app.py"]
+CMD ["streamlit", "run", "src/app.py"]

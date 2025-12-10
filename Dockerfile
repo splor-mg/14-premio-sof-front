@@ -25,4 +25,4 @@ ENV STREAMLIT_SERVER_PORT=8501 \
 EXPOSE 8501
 
 # Run the app located inside src/
-CMD ["poetry", "run", "task", "server"]
+CMD ["streamlit", "run", "app.py"]

@@ -21,7 +21,7 @@ package-mode=false
 
 
 [tool.taskipy.tasks]
-server = { cmd = "streamlit run app.py", help = "Runs the server." }
+server = { cmd = "streamlit run src/app.py", help = "Runs the server." }
 
 
 [build-system]

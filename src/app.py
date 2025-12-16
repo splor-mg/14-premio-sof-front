@@ -18,11 +18,13 @@ def main():
         """)
 
     st.write("Preencha os dados abaixo. O resultado será enviado para o WhatsApp informado assim que o fluxo for finalizado.")
-    data_input = st.date_input("Data:", value=date.today(), format="DD/MM/YYYY")
+    data_input = st.date_input("Data:", value=date.today(), format="DD/MM/YYYY",
+                               help="Data para busca no DOU.")
     tipo_diario = st.selectbox(
         "Tipo de Diário Oficial:",
         options=["Edição Normal", "Edição Extraordinária"],
-        index=0
+        index=0,
+        help="Buscas em edições extraordinárias são mais rápidas."
     )
     telefone = st.text_input(
             f"Número WhatsApp (somente números, DDD + número):",
@@ -30,11 +32,14 @@ def main():
             key="telefone")
     valido, resultado = validar_whatsapp(telefone)
     if telefone and not valido:
-        st.error(f"Erro no número de telefone {telefone}: {resultado}")
+        st.error(f"Erro no número de whatsapp {telefone}: {resultado}")
 
     enviado = st.button("Enviar")
 
     if enviado:
+        if not telefone:
+            st.error("❌ Por favor, insira um número de whatsapp válido.")
+            st.stop()
 
         fluxo_url = os.getenv("FLOW_URL")
         username = os.getenv("FLOW_USERNAME")

@@ -19,6 +19,11 @@ def main():
 
     st.write("Preencha os dados abaixo. O resultado será enviado para o WhatsApp informado assim que o fluxo for finalizado.")
     data_input = st.date_input("Data:", value=date.today(), format="DD/MM/YYYY")
+    tipo_diario = st.selectbox(
+        "Tipo de Diário Oficial:",
+        options=["Edição Normal", "Edição Extraordinária"],
+        index=0
+    )
     telefone = st.text_input(
             f"Número WhatsApp (somente números, DDD + número):",
             placeholder="Ex: 31987654321 ou 3187654321",
@@ -37,7 +42,8 @@ def main():
 
         payload = {
             "data": data_input.strftime("%d/%m/%Y"),
-            "telefone": [f"55{telefone}",]
+            "telefone": [f"55{telefone}",],
+            "tipo_diario": "DO1" if tipo_diario == "Edição Normal" else "DOE",
         }
 
         try:
